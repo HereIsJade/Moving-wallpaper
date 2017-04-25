@@ -88,9 +88,9 @@ function drawJoint(joint) {
   var pos = getPos(joint);
 }
 
-// function mousePressed(){
-//   masterBlock.drop();
-// }
+function mousePressed(){
+  masterBlock.drop();
+}
 
 function windowResized(){
   resizeCanvas(windowWidth, windowHeight);

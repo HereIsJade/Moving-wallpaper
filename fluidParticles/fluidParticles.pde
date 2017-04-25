@@ -92,6 +92,7 @@ public void settings() {
 
 
 public void setup() {
+  noCursor();
 
   // main library context
   DwPixelFlow context = new DwPixelFlow(this);
@@ -119,24 +120,24 @@ public void setup() {
   pg_fluid.endDraw();
 
   // pgraphics for obstacles
-  pg_obstacles = (PGraphics2D) createGraphics(viewport_w, viewport_h, P2D);
-  pg_obstacles.smooth(4);
-  pg_obstacles.beginDraw();
-  pg_obstacles.clear();
-  float radius;
-  radius = 200;
-  pg_obstacles.stroke(64);
-  pg_obstacles.strokeWeight(10);
-  pg_obstacles.noFill();
-  pg_obstacles.rect(1*width/3, 1*height/4, radius, radius, 20);
-  // border-obstacle
-  pg_obstacles.strokeWeight(10);
-  pg_obstacles.stroke(64);
-  pg_obstacles.noFill();
-  pg_obstacles.rect(0, 0, pg_obstacles.width, pg_obstacles.height);
-  pg_obstacles.endDraw();
+  //pg_obstacles = (PGraphics2D) createGraphics(viewport_w, viewport_h, P2D);
+  //pg_obstacles.smooth(4);
+  //pg_obstacles.beginDraw();
+  //pg_obstacles.clear();
+  //float radius;
+  //radius = 200;
+  //pg_obstacles.stroke(64);
+  //pg_obstacles.strokeWeight(10);
+  //pg_obstacles.noFill();
+  //pg_obstacles.rect(1*width/3, 1*height/4, radius, radius, 20);
+  //// border-obstacle
+  //pg_obstacles.strokeWeight(10);
+  //pg_obstacles.stroke(64);
+  //pg_obstacles.noFill();
+  //pg_obstacles.rect(0, 0, pg_obstacles.width, pg_obstacles.height);
+  //pg_obstacles.endDraw();
 
-  fluid.addObstacles(pg_obstacles);
+  //fluid.addObstacles(pg_obstacles);
 
   // custom particle object
   particles = new MyParticleSystem(context, 1024 * 1024);
@@ -155,7 +156,7 @@ public void draw() {
 
   // update simulation
   if (UPDATE_FLUID) {
-    fluid.addObstacles(pg_obstacles);
+    //fluid.addObstacles(pg_obstacles);
     fluid.update();
     particles.update(fluid);
   }
@@ -185,7 +186,7 @@ public void draw() {
 
   // display
   image(pg_fluid, 0, 0);
-  image(pg_obstacles, 0, 0);
+  //image(pg_obstacles, 0, 0);
 
 
   // display number of particles as text
