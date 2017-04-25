@@ -32,7 +32,7 @@ function setup() {
   ellipseMode(CENTER);
 
   // Define and create an instance of kinectron
-  kinectron = new Kinectron("172.16.231.112");
+  kinectron = new Kinectron("172.16.219.228");
 
   // Connect with application over peer
   kinectron.makeConnection();
@@ -84,7 +84,7 @@ function draw() {
       for (var p = 0; p < positions.length; p++) {
 
         // Draw all the body positions
-        var pos = positions[p];
+        var pos = getPos(positions[p]);
         console.log(pos);
         tethers[i][j].move(pos.x,pos.y);
       }
