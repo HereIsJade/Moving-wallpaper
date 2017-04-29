@@ -21,15 +21,15 @@ private class MyFluidData implements DwFluid2D.FluidData {
 
     radius = 15;
     vscale = 10;
-    px     = width/2;
-    py     = 50;
+    px     = width/3;
+    py     = 550;
     vx     = 1 * +vscale;
     vy     = 1 *  vscale;
     radius = 40;
     temperature = 1f;
     fluid.addDensity(px, py, radius, 0.2f, 0.3f, 0.5f, 1.0f);
     fluid.addTemperature(px, py, radius, temperature);
-    particles.spawn(fluid, px, py, radius, 100);
+    //particles.spawn(fluid, px, py, radius, 100);
 
 
     boolean mouse_input = mousePressed;
@@ -92,7 +92,7 @@ public void settings() {
 
 
 public void setup() {
-  noCursor();
+  //noCursor();
 
   // main library context
   DwPixelFlow context = new DwPixelFlow(this);
@@ -103,7 +103,7 @@ public void setup() {
   fluid = new DwFluid2D(context, viewport_w, viewport_h, fluidgrid_scale);
 
   // set some simulation parameters
-  fluid.param.dissipation_density     = 0.999f;
+  fluid.param.dissipation_density     = 1.999f;
   fluid.param.dissipation_velocity    = 0.99f;
   fluid.param.dissipation_temperature = 0.80f;
   fluid.param.vorticity               = 0.10f;
@@ -202,6 +202,13 @@ public void draw() {
   //surface.setTitle(txt_fps);
 }
 
+void keyPressed() {
+   if (key == 'p') {
+      fluid_togglePause();
+    }
+    
+   
+}
 
 
 

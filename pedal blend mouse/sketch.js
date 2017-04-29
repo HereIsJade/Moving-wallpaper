@@ -4,7 +4,7 @@ var connectRadius = 0.25;
 
 
 function setup(){
-  noCursor();
+  // noCursor();
   var canvas=createCanvas(displayWidth, displayHeight);
   frameRate(60);
   noFill();
