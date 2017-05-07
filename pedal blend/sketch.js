@@ -25,7 +25,7 @@ function setup(){
 
 
   // Define and create an instance of kinectron
-  kinectron = new Kinectron("172.16.219.228");
+  kinectron = new Kinectron("172.20.10.5");
 
   // Connect with application over peer
   kinectron.makeConnection();
