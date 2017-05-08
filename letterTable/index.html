@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>three.js css3d - periodic table</title>
+		<title></title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<style>
@@ -105,12 +105,12 @@
 		<script src="js/CSS3DRenderer.js"></script>
 
 		<div id="container"></div>
-		<div id="info"><a href="http://threejs.org" target="_blank">three.js css3d</a> - periodic table. <a href="https://plus.google.com/113862800338869870683/posts/QcFk5HrWran" target="_blank">info</a>.</div>
+		
 		<div id="menu">
-			<button id="table">TABLE</button>
-			<button id="sphere">SPHERE</button>
-			<button id="helix">HELIX</button>
-			<button id="grid">GRID</button>
+			<button id="table"></button>
+			<button id="sphere"></button>
+			<button id="helix"></button>
+			<button id="grid"></button>
 		</div>
 
 		<script>
@@ -120,17 +120,26 @@
 
 		bWords=['baby', 'back', 'bad', 'bare', 'bargain', 'barred', 'bars', 'basely', 'bay', 'be', 'beautiful', 'because', 'becomes', 'bed', 'beds', 'bedstead', 'been', 'before', 'beg', 'began', 'begin', 'beginning', 'behind', 'believe', 'believed', 'belonging', 'besides', 'betrayed', 'better', 'big', 'bit', 'blackberry', 'blame', 'blank', 'bless', 'blessed', 'bloated', 'boat', 'body', 'bottom', 'box-bordered', 'boys', 'breadth', 'breadths', 'break', 'breaths', 'bright', 'bring', 'broken', 'brother', 'budding', 'bulbous', 'burden', 'burea', 'burning', 'bushes', 'but', 'buttercups', 'by'];
 		var table=[];
-		for(var i=0;i<7;i++){
-			table[i*5]=alphabets[parseInt(Math.random(alphabets.length))];
-			table[i*5+1]="";
-			table[i*5+2]="";
-			table[i*5+4]=i+1;
+		//18*7=125 letters, 125*5 table elements
+		for (var i=0;i<10;i++){
 			for(var j=0;j<18;j++){
-				table[18*i+j]=j+1;
+				for (var m=0;m<5;m++){
+					if(m==0){
+						table[(i*18+j)*5+m]=alphabets[parseInt(Math.random(alphabets.length)*26)];
+					}
+					if(m==1||m==2){
+						table[(i*18+j)*5+m]="";
+					}
+					if(m==3){
+						table[(i*18+j)*5+m]=j+1;
+					}
+					if(m==4){
+						table[(i*18+j)*5+m]=i+1;
+					}
+				}
 			}
-			// table[i*5+3]=i+1;
 		}
-		
+
 console.log(table);
 
 			// var table = [
