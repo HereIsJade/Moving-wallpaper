@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 	<style>
 		* { margin: 0; padding: 0; -webkit-user-select: none; -moz-user-select: none}
-		body{ overflow: hidden; font-family: tahoma, sans-serif; font-size: 12px; background-color: #202020;}
+		body{ overflow: hidden; font-family: tahoma, sans-serif; font-size: 12px; background-color: #000000;}
 		#container{ position: absolute; left: 0; top: 0; right: 0; bottom: 0;}
 		#intro{ position: absolute; left: 0; top: 0; padding: 40px; pointer-events: none; transition: opacity 250ms ease-out; color: white;}
 		#intro h1, #intro h2, #intro ul, #closeBtn, #minIntro{ font-family: Raleway, sans-serif; color: white; text-shadow: 0 -1px 0 black;}
@@ -61,7 +61,7 @@
 
 	<div id="intro" >
 
-		<div id="loading" >Loading...</div>
+		<div id="loading" ></div>
 		<div id="loaded" >
 			<div id="instructions" >
 				<ul>
@@ -70,7 +70,7 @@
 					<li><b>Click and drag</b> to rotate the camera, use scroll to zoom in and out</li>
 					<li>Play with the <b>controls</b> and let's see what you can find!</li>
 				</ul>
-				<ul class="controls">
+				<!-- <ul class="controls">
 					<li><b>Factor:</b> speed at which the particles move</li>
 					<li><b>Evolution:</b> the variation over time of the particles flow</li>
 					<li><b>Rotation:</b> speed at which the particle field auto-rotates</li>
@@ -78,11 +78,11 @@
 					<li><b>Pulsate:</b> if enabled, the sphere pulsates, pushing in and out</li>
 					<li><b>ScaleX/Y/Z:</b> set the scale of each axis of the particles</li>
 					<li><b>Scale:</b> change the overall scale of the particles</li>
-				</ul>
+				</ul> -->
 			</div>
 			<p id="sizes">Too many? Too litte?<br/>Try <span id="size-options" ></span></p>
 			<p id="closeBtn" >Close this message</p>
-		</div> 
+		</div>
 	</div>
 
 	<div id="minIntro" class="hidden">

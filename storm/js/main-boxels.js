@@ -194,7 +194,7 @@ function init() {
 	light.rotation.y += Math.PI / 2;
 	light.rotation.z += Math.PI / 2;
 
-	encasing = new THREE.Mesh( new THREE.CylinderGeometry( 5.1, 6.1, .9, 36 ), new THREE.MeshBasicMaterial( { color: 0x101010 }) );
+	encasing = new THREE.Mesh( new THREE.CylinderGeometry( 5.1, 6.1, .9, 36 ), new THREE.MeshBasicMaterial( { color: 0x000000 }) );
 	encasing.position.copy( shadowCamera.position );
 	scene.add( encasing );
 	encasing.lookAt( scene.position );
@@ -596,7 +596,7 @@ function render() {
 	material.uniforms.shadowV.value.copy( shadowCamera.matrixWorldInverse );
 	material.uniforms.lightPosition.value.copy( v );
 
-	renderer.setClearColor( 0x202020 );
+	renderer.setClearColor( 0x000000 );
 	mesh.material = material;
 	renderer.render( scene, camera );
 
