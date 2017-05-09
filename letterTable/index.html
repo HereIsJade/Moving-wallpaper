@@ -103,9 +103,17 @@
 		<script src="js/tween.min.js"></script>
 		<script src="js/TrackballControls.js"></script>
 		<script src="js/CSS3DRenderer.js"></script>
+		<script src="js/CopyShader.js"></script>
+		<script src="js/DigitalGlitch.js"></script>
+
+		<script src="js/postprocessing/EffectComposer.js"></script>
+		<script src="js/postprocessing/RenderPass.js"></script>
+		<script src="js/postprocessing/MaskPass.js"></script>
+		<script src="js/postprocessing/ShaderPass.js"></script>
+		<script src="js/postprocessing/GlitchPass.js"></script>
 
 		<div id="container"></div>
-		
+
 		<div id="menu">
 			<button id="table"></button>
 			<button id="sphere"></button>
@@ -140,7 +148,7 @@
 			}
 		}
 
-console.log(table);
+		console.log(table);
 
 			// var table = [
 			// 	"All", "A", "", 1, 1,
@@ -269,21 +277,32 @@ console.log(table);
 			// 	"Uuo", "Ununoctium", "(294)", 18, 7
 			// ];
 
-			var camera, scene, renderer;
+			var camera, scene, renderer,composer;
+			var renderer2;
 			var controls;
+			var light;
+			var glitchPass;
 
 			var objects = [];
 			var targets = { table: [], sphere: [], helix: [], grid: [] };
 
 			init();
 			animate();
-
+			function updateOptions() {
+				var wildGlitch = document.getElementById('wildGlitch');
+				glitchPass.goWild=wildGlitch.checked;
+			}
 			function init() {
 
 				camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 10000 );
 				camera.position.z = 3000;
 
 				scene = new THREE.Scene();
+
+				renderer2 = new THREE.WebGLRenderer();
+				renderer2.setPixelRatio( window.devicePixelRatio );
+				renderer2.setSize( window.innerWidth, window.innerHeight );
+				document.body.appendChild( renderer2.domElement );
 
 				// table
 
@@ -438,6 +457,22 @@ console.log(table);
 				//
 
 				window.addEventListener( 'resize', onWindowResize, false );
+
+				scene.add( new THREE.AmbientLight( 0x222222 ) );
+
+				light = new THREE.DirectionalLight( 0xffffff );
+				light.position.set( 1, 1, 1 );
+				scene.add( light );
+
+				// postprocessing
+
+				composer = new THREE.EffectComposer( renderer2 );
+				composer.addPass( new THREE.RenderPass( scene, camera ) );
+
+				glitchPass = new THREE.GlitchPass();
+				glitchPass.renderToScreen = true;
+				composer.addPass( glitchPass );
+
 
 			}
 
