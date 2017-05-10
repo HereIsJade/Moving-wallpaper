@@ -105,8 +105,8 @@ int spaceY=0;
   }
 
 
-  int viewport_w = 1280;
-  int viewport_h = 800;
+  int viewport_w = 1920;
+  int viewport_h = 1080;
   int fluidgrid_scale = 1;
 
   int BACKGROUND_COLOR = 0;
