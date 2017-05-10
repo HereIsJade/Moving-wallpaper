@@ -47,7 +47,8 @@ int numberOfStars = 20000;
 int newStars =50;
 
 void setup() {
-  size(900, 900);
+  //size(displayWidth, displayHeight);
+  fullScreen();
   w2=width/2;
   h2= height/2;
   d2 = dist(0, 0, w2, h2);
