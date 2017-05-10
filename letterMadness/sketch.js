@@ -55,22 +55,6 @@ function Letter(x,y){
   this.letter=alphabets[parseInt(random(alphabets.length))];
   this.x=x*horizontalTextSize;
   this.y=y*verticalTextSize;
-
-  // this.update=function(){
-  //   fill(0, 255, 255);
-  //   text(this.letter, this.x, this.y);
-  // }
-
-  // this.horizontallyMove=function(n){
-  //   var head=letters[0][n].letter;
-  //   for (var i=0;i<cols;i++){
-  //     if (i==cols-1){
-  //       letters[i][n].letter=head;
-  //     }
-  //     else{
-  //       letters[i][n].letter=letters[i+1][n].letter;
-  //     }
-  //   }
   this.display=function(){
     fill(0, 255, 255);
     textSize(3);
