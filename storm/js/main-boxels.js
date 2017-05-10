@@ -66,9 +66,9 @@ if( Detector.webgl ) {//&& !isMobile.any ) {
 	window.addEventListener( 'load', init, false );
 
 } else {
-	document.getElementById( 'error' ).classList.remove( 'hidden' );
-	document.getElementById( 'intro' ).classList.add( 'hidden' );
-	document.getElementById( 'minIntro' ).classList.remove( 'hidden' );
+	// document.getElementById( 'error' ).classList.remove( 'hidden' );
+	// document.getElementById( 'intro' ).classList.add( 'hidden' );
+	// document.getElementById( 'minIntro' ).classList.remove( 'hidden' );
 }
 
 var container;
@@ -132,21 +132,21 @@ function init() {
 
 	if( !inFrame ) {
 
-		gui = new dat.GUI();
+		// gui = new dat.GUI();
+		//
+		// //gui.add( params, 'type', { 'none': 0, 'single': 1, 'multisample': 2, 'poisson': 3 } );
+		// //gui.add( params, 'spread', 0, 10 );
+		// gui.add( params, 'factor', 0.1, 1 );
+		// gui.add( params, 'evolution', 0, 1 );
+		// gui.add( params, 'rotation', 0, 1 );
+		// gui.add( params, 'radius', 0, 4 );
+		// gui.add( params, 'pulsate' );
+		// gui.add( params, 'scaleX', .1, 10 );
+		// gui.add( params, 'scaleY', .1, 10 );
+		// gui.add( params, 'scaleZ', .1, 10 );
+		// gui.add( params, 'scale', .1, 2 );
 
-		//gui.add( params, 'type', { 'none': 0, 'single': 1, 'multisample': 2, 'poisson': 3 } );
-		//gui.add( params, 'spread', 0, 10 );
-		gui.add( params, 'factor', 0.1, 1 );
-		gui.add( params, 'evolution', 0, 1 );
-		gui.add( params, 'rotation', 0, 1 );
-		gui.add( params, 'radius', 0, 4 );
-		gui.add( params, 'pulsate' );
-		gui.add( params, 'scaleX', .1, 10 );
-		gui.add( params, 'scaleY', .1, 10 );
-		gui.add( params, 'scaleZ', .1, 10 );
-		gui.add( params, 'scale', .1, 2 );
-
-		if( isMobile.any ) gui.close();
+		// if( isMobile.any ) gui.close();
 
 		var sizeOptions = document.getElementById( 'size-options' );
 		var presets = isMobile.any ? presetMobile : presetsDesktop;

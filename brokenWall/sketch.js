@@ -128,7 +128,7 @@ function Block(posA, posB, posC, posD, depth){
   if(this.depth < maxDepth){
     this.drawing = true;
   }
-  this.drawingDuration = random(500,2000);
+  this.drawingDuration = random(6000,9000);
   this.drawingStart = millis();
   this.dropping = false;
   this.dead = false;
