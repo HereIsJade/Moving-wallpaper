@@ -13,6 +13,7 @@ var kinectron = null;
 var humanDistance=2000;
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  noCursor();
 
   // Define and create an instance of kinectron
   kinectron = new Kinectron("172.16.216.9");
