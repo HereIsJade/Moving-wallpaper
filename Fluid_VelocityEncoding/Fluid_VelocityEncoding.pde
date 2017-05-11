@@ -186,7 +186,7 @@ int spaceY=0;
 
 
   public void updateVelocity(){
-    float speed = 20;
+    float speed = 30;
     float smooth = 0.025f;
 
     mx_prev = mx;
