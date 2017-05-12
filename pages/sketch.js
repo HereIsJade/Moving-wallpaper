@@ -5,9 +5,17 @@ var gifH=800;
 var hline;
 var hline2;
 var grid;
+
+var flash;
+var isFlashing=false;
+var fx=0;
+function preload() {
+  flash = loadImage("flash.png");
+  gif = loadGif('a5.gif');
+
+}
 function setup() {
   createCanvas(displayWidth, displayHeight);
-  gif = loadGif('a5.gif');
   // photo.copy(bricks, 0, 0, x, y, 0, 0, x, y);
   hline=new horizontalLine();
   hline2=new horizontalLine2();
@@ -29,6 +37,20 @@ function draw() {
   hline2.move();
   hline2.display();
   grid.display();
+
+  if(isFlashing){
+    image(flash,fx,0);
+    fx++;
+  }
+
+  if(fx>=2880){
+    fx=0;
+    isFlashing=false;
+  }
+}
+
+function mousePressed(){
+  isFlashing=true;
 }
 
 function Grid(){
