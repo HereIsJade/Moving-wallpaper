@@ -8,9 +8,9 @@ var grid;
 
 var flash;
 var isFlashing=false;
-var fx=0;
+var fx=-2880;
 function preload() {
-  flash = loadImage("flash.png");
+  flash = loadImage("Flash6.png");
   gif = loadGif('a5.gif');
 
 }
@@ -40,13 +40,14 @@ function draw() {
 
   if(isFlashing){
     image(flash,fx,0);
-    fx++;
+    fx+=150;
   }
 
-  if(fx>=2880){
-    fx=0;
+  if(fx>=0){
+    fx=-2880;
     isFlashing=false;
   }
+  console.log(isFlashing,fx);
 }
 
 function mousePressed(){
