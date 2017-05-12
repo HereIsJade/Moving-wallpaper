@@ -16,6 +16,7 @@ function preload() {
 }
 function setup() {
   createCanvas(displayWidth, displayHeight);
+  noCursor();
   // photo.copy(bricks, 0, 0, x, y, 0, 0, x, y);
   hline=new horizontalLine();
   hline2=new horizontalLine2();
