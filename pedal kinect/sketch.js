@@ -15,6 +15,8 @@ var DEATH_TH = 1000;
 function setup(){
   var canvas = createCanvas(displayWidth, displayHeight);
   // canvas.parent("splash");
+
+  noCursor();
   frameRate(60);
   noFill();
   blendMode(LIGHTEST);
@@ -33,6 +35,7 @@ function setup(){
 }
 
 function draw(){
+  background(0);
   var joints = bm.getJoints(kinectron.FOOTLEFT);
   for (var j = 0; j < joints.length; j++) {
     // Get the position
@@ -89,6 +92,12 @@ function draw(){
   deadpoints = [];
 }
 
+function keyTyped(){
+  if(key==='a'){
+    clear();
+    background(0);
+  }
+}
 function getColor(pos){
   // returns a value from the CMY spectrum
   var cyan = color(0, 255, 255);
@@ -210,51 +219,6 @@ function bodyTracked(body) {
 // Use x as y
 function getPos(joint) {
   return createVector((joint.x * xscl) + xshift, (joint.y * yscl) + yshift);
-}
-
-function keyPressed() {
-  // Switch mode of arrow keys
-  if (keyCode == ESCAPE) scl = !scl;
-
-  // Adjust scale of x,z coordinates to map to projection
-  if (scl) {
-    switch (keyCode) {
-      case RIGHT_ARROW:
-        xscl++;
-        break;
-      case LEFT_ARROW:
-        xscl--;
-        break;
-      case UP_ARROW:
-        yscl++;
-        break;
-      case DOWN_ARROW:
-        yscl--;
-        break;
-    }
-
-    xscl = constrain(xscl, 0, width);
-    yscl = constrain(yscl, 0, width);
-  }
-  // Adjust shift
-  else {
-    switch (keyCode) {
-      case RIGHT_ARROW:
-        xshift++;
-        break;
-      case LEFT_ARROW:
-        xshift--;
-        break;
-      case UP_ARROW:
-        yshift++;
-        break;
-      case DOWN_ARROW:
-        yshift--;
-        break;
-    }
-    xshift = constrain(xshift, 0, width);
-    yshift = constrain(yshift, 0, height);
-  }
 }
 
 function generate(x,y){
